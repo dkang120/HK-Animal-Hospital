@@ -33,10 +33,8 @@
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" @click="page = 'home'" class="flex items-center">
-                <img src="logo.png" alt="HK Animal Hospital" class="h-10 md:h-12 mr-4" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="hidden" style="display: none;">
-                    <span class="text-xl font-bold tracking-tighter medical-teal leading-none uppercase">HK Animal Hospital</span>
-                </div>
+               <a href="#" @click="page = 'home'" class="flex items-center">
+    <img src="logo.png" alt="HK Animal Hospital" class="h-10 md:h-12 mr-4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             </a>
             
             <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-wider">
