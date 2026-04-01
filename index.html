@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HK Animal Hospital | Modern Veterinary Care</title>
-    
+    <title>HK Animal Hospital | Dr. Tae Woo Kang | Danville, CA</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .medical-teal { color: #006064; }
@@ -16,23 +14,22 @@
         [x-cloak] { display: none !important; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800" x-data="{ mobileMenu: false, bookingModal: false }">
+<body class="bg-white text-slate-800" x-data="{ page: 'home', mobileMenu: false, bookingModal: false }">
 
-    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 shadow-sm">
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="flex flex-col">
-                <span class="text-2xl font-bold tracking-tight medical-teal leading-none uppercase">HK Animal</span>
-                <span class="text-xs font-semibold tracking-widest text-slate-400 uppercase">Hospital</span>
+            <a href="#" @click="page = 'home'" class="flex flex-col">
+                <span class="text-2xl font-bold tracking-tighter medical-teal leading-none uppercase">HK Animal</span>
+                <span class="text-xs font-semibold tracking-[0.3em] text-slate-400 uppercase">Hospital</span>
             </a>
             
-            <div class="hidden lg:flex items-center space-x-8 font-medium">
-                <a href="#services" class="hover:text-teal-700 transition">Services</a>
-                <a href="#about" class="hover:text-teal-700 transition">About</a>
-                <a href="#contact" class="hover:text-teal-700 transition">Contact</a>
-                <a href="tel:9258319900" class="text-medical-teal font-bold border-l pl-8">(925) 831-9900</a>
-                <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full font-bold hover:bg-cyan-900 transition shadow-lg shadow-teal-900/20">
-                    Book Appointment
-                </button>
+            <div class="hidden lg:flex items-center space-x-8 font-semibold text-sm uppercase tracking-wider">
+                <a href="#" @click="page = 'home'" :class="page === 'home' ? 'medical-teal' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
+                <a href="#" @click="page = 'about'" :class="page === 'about' ? 'medical-teal' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
+                <a href="#" @click="page = 'services'" :class="page === 'services' ? 'medical-teal' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
+                <a href="#" @click="page = 'team'" :class="page === 'team' ? 'medical-teal' : 'text-slate-500'" class="hover:text-teal-700 transition">Our Team</a>
+                <a href="tel:9258319900" class="bg-slate-100 px-4 py-2 rounded-lg text-medical-teal">(925) 831-9900</a>
+                <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full hover:bg-cyan-900 transition shadow-lg">Book Now</button>
             </div>
 
             <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2">
@@ -40,127 +37,179 @@
                 <svg x-show="mobileMenu" x-cloak class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
         </nav>
-
-        <div x-show="mobileMenu" x-cloak x-transition class="lg:hidden bg-white border-t p-6 space-y-4 shadow-xl">
-            <a href="#services" @click="mobileMenu = false" class="block text-lg font-semibold">Services</a>
-            <a href="#contact" @click="mobileMenu = false" class="block text-lg font-semibold">Contact</a>
-            <button @click="bookingModal = true; mobileMenu = false" class="w-full bg-medical-teal text-white py-4 rounded-xl font-bold">Request Appointment</button>
-        </div>
     </header>
 
-    <section class="py-20 lg:py-32 bg-white">
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row items-center">
-            <div class="lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
-                <div class="inline-block px-4 py-1 bg-teal-50 text-teal-700 rounded-full text-sm font-bold mb-6">
-                    Professional Veterinary Medicine
-                </div>
-                <h1 class="text-5xl lg:text-7xl font-bold text-slate-900 leading-[1.1] mb-8">
-                    Gentle Care. <br><span class="medical-teal italic">Expert Hands.</span>
-                </h1>
-                <p class="text-xl text-slate-500 mb-10 max-w-lg leading-relaxed">
-                    High-quality, compassionate care for your family members in the Danville community.
-                </p>
-                <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-                    <button @click="bookingModal = true" class="px-10 py-5 bg-medical-teal text-white rounded-2xl font-bold text-lg hover:scale-105 transition shadow-2xl">
-                        Schedule Online
-                    </button>
-                    <a href="tel:9258319900" class="px-10 py-5 bg-slate-100 text-slate-700 rounded-2xl font-bold text-lg hover:bg-slate-200 transition">
-                        Call Clinic
-                    </a>
+    <div x-show="mobileMenu" x-cloak class="fixed inset-0 z-40 bg-white p-10 lg:hidden">
+        <div class="flex flex-col space-y-6 text-2xl font-bold">
+            <a href="#" @click="page = 'home'; mobileMenu = false">Home</a>
+            <a href="#" @click="page = 'about'; mobileMenu = false">About Us</a>
+            <a href="#" @click="page = 'services'; mobileMenu = false">Services</a>
+            <a href="#" @click="page = 'team'; mobileMenu = false">Our Team</a>
+            <button @click="bookingModal = true; mobileMenu = false" class="bg-medical-teal text-white py-4 rounded-xl">Book Appointment</button>
+        </div>
+    </div>
+
+    <main x-show="page === 'home'" x-transition>
+        <section class="py-20 lg:py-32 container mx-auto px-6 flex flex-col lg:flex-row items-center">
+            <div class="lg:w-1/2 mb-12 lg:mb-0">
+                <h1 class="text-6xl lg:text-8xl font-bold leading-tight mb-8">Personalized <span class="medical-teal italic font-light">Quality Care.</span></h1>
+                <p class="text-xl text-slate-500 mb-10 max-w-lg">Serving Danville pets with compassion, grace, and clinical excellence since 2021.</p>
+                <div class="flex space-x-4">
+                    <button @click="bookingModal = true" class="px-8 py-4 bg-medical-teal text-white rounded-2xl font-bold shadow-xl">Schedule Visit</button>
+                    <button @click="page = 'services'" class="px-8 py-4 bg-slate-100 rounded-2xl font-bold">View Services</button>
                 </div>
             </div>
-            <div class="lg:w-1/2 lg:pl-12">
-                <div class="aspect-square bg-gradient-to-br from-teal-50 to-slate-100 rounded-[3rem] border-8 border-white shadow-2xl flex items-center justify-center">
-                    <div class="text-center opacity-30">
-                        <span class="text-9xl italic">🐾</span>
-                        <p class="font-bold tracking-widest mt-4 uppercase">Clinical Excellence</p>
+            <div class="lg:w-1/2 w-full aspect-video bg-slate-100 rounded-[3rem] border-8 border-white shadow-2xl flex items-center justify-center">
+                <span class="text-8xl opacity-20">🏥</span>
+            </div>
+        </section>
+
+        <div class="bg-emerald-600 text-white py-4 text-center font-bold">
+            🎉 NEW CLIENT SPECIAL: Mention this website for a discounted first exam!
+        </div>
+
+        <section class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-16 uppercase tracking-widest text-slate-400">Client Testimonials</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-3xl shadow-sm italic text-slate-600 border border-slate-100">
+                        "From the onset we were treated professionally, courteously and respectfully. Dr. Kang is an excellent veterinarian."
+                        <p class="mt-4 font-bold not-italic text-slate-900">— Merc O. & Charlie</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm italic text-slate-600 border border-slate-100">
+                        "I’d highly recommend Dr. Kang! Not only is he an expert, he is caring and compassionate."
+                        <p class="mt-4 font-bold not-italic text-slate-900">— David H. & Macy</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-3xl shadow-sm italic text-slate-600 border border-slate-100">
+                        "Dr. K is the best vet for our dog. Very professional and the prices are super affordable."
+                        <p class="mt-4 font-bold not-italic text-slate-900">— Ramiro M.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="bg-slate-50 py-12 border-y border-slate-200">
-        <div class="container mx-auto px-6 flex flex-wrap justify-around gap-8 text-center">
-            <div><p class="text-3xl font-bold medical-teal">Danville</p><p class="text-sm text-slate-400 font-bold uppercase tracking-wider">Location</p></div>
-            <div><p class="text-3xl font-bold medical-teal">Licensed</p><p class="text-sm text-slate-400 font-bold uppercase tracking-wider">CA & AZ</p></div>
-            <div><p class="text-3xl font-bold medical-teal">Top Rated</p><p class="text-sm text-slate-400 font-bold uppercase tracking-wider">Google Reviews</p></div>
+    <main x-show="page === 'about'" x-transition x-cloak class="py-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-5xl font-bold mb-12">Our Story & <span class="medical-teal">Mission</span></h2>
+            <div class="prose prose-lg text-slate-600 space-y-6">
+                <p class="text-xl leading-relaxed">Dr. Tae Woo Kang practiced veterinary medicine for many years as part of a corporate practice. He opened HK Animal Hospital to fulfill his lifelong dream of providing excellent, personalized care for each and every patient.</p>
+                <div class="bg-teal-50 p-8 rounded-3xl border-l-8 border-medical-teal my-12">
+                    <h3 class="text-medical-teal font-bold mb-4 uppercase tracking-widest text-sm">Our Faith & Values</h3>
+                    <p class="italic text-teal-900">"As a Christian veterinary hospital, we will share God’s compassion and grace with our employees, neighbors, clients, and the community."</p>
+                </div>
+                <p>We believe that gentle care comes from gentle and professional staff and a clean and welcoming working environment. Dr. Kang is committed to using his experience and knowledge of advanced veterinary medicine to provide the highest quality veterinary care in the most cost-efficient manner possible.</p>
+            </div>
         </div>
-    </section>
+    </main>
 
-    <section id="services" class="py-24 bg-white">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-16">Specialized Veterinary Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-3xl mb-8 mx-auto group-hover:bg-medical-teal transition">🩺</div>
-                    <h3 class="text-xl font-bold mb-4">Internal Medicine</h3>
-                    <p class="text-slate-500 leading-relaxed">Diagnostic imaging and hematology sample processing for accurate care.</p>
+    <main x-show="page === 'services'" x-transition x-cloak class="py-24 bg-slate-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-5xl font-bold mb-4">Complete Medical Services</h2>
+                <p class="text-slate-500">Quality care with clinical precision.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">🩺</div>
+                    <h3 class="font-bold text-xl mb-2">Exam & Consultation</h3>
+                    <p class="text-sm text-slate-500">Comprehensive physical exams and expert medical advice for any concern.</p>
                 </div>
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-3xl mb-8 mx-auto group-hover:bg-medical-teal transition">🦷</div>
-                    <h3 class="text-xl font-bold mb-4">Dental Health</h3>
-                    <p class="text-slate-500 leading-relaxed">Modern cleanings and surgical extractions to prevent long-term disease.</p>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">💉</div>
+                    <h3 class="font-bold text-xl mb-2">Preventative Care</h3>
+                    <p class="text-sm text-slate-500">Vaccinations, parasite prevention, and wellness plans to keep your pet healthy.</p>
                 </div>
-                <div class="p-10 rounded-[2.5rem] bg-slate-50 border border-slate-100 hover:shadow-xl transition group">
-                    <div class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center text-3xl mb-8 mx-auto group-hover:bg-medical-teal transition">🩹</div>
-                    <h3 class="text-xl font-bold mb-4">Surgery</h3>
-                    <p class="text-slate-500 leading-relaxed">Soft tissue surgery and clinical stabilization in our high-tech facility.</p>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">🦴</div>
+                    <h3 class="font-bold text-xl mb-2">Diagnostic Imaging</h3>
+                    <p class="text-sm text-slate-500">Advanced X-rays and imaging to see what the naked eye cannot.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">🦷</div>
+                    <h3 class="font-bold text-xl mb-2">Dentistry</h3>
+                    <p class="text-sm text-slate-500">Professional cleanings and extractions at affordable prices.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">🔪</div>
+                    <h3 class="font-bold text-xl mb-2">Surgery</h3>
+                    <p class="text-sm text-slate-500">Routine spay/neuter and specialty specialty surgeries performed on-site.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">💊</div>
+                    <h3 class="font-bold text-xl mb-2">Pharmacy</h3>
+                    <p class="text-sm text-slate-500">Fully-stocked in-house pharmacy for immediate medical treatment.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">🚨</div>
+                    <h3 class="font-bold text-xl mb-2">Emergency</h3>
+                    <p class="text-sm text-slate-500">Ready at any time to provide emergency care for critical situations.</p>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border border-slate-200">
+                    <div class="text-3xl mb-4">📋</div>
+                    <h3 class="font-bold text-xl mb-2">Management</h3>
+                    <p class="text-sm text-slate-500">Chronic disease management in a clean and reliable environment.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section id="contact" class="py-24 bg-slate-50">
-        <div class="container mx-auto px-6 flex flex-col lg:flex-row gap-16">
-            <div class="lg:w-1/2">
-                <h2 class="text-4xl font-bold mb-6">Contact Our Team</h2>
-                <p class="text-lg text-slate-500 mb-8">Serving Danville neighbors with grace and professional expertise.</p>
-                
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">📍</div>
-                        <p class="font-semibold">5 Railroad Ave #A, Danville, CA 94526</p>
-                    </div>
-                    <div class="flex items-center space-x-4 text-medical-teal font-bold text-xl">
-                        <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">📞</div>
-                        <a href="tel:9258319900">(925) 831-9900</a>
-                    </div>
+    <main x-show="page === 'team'" x-transition x-cloak class="py-24">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h2 class="text-5xl font-bold mb-16 text-center">Meet <span class="medical-teal">Dr. Kang</span></h2>
+            <div class="flex flex-col md:flex-row gap-12 items-center bg-slate-50 p-12 rounded-[3rem]">
+                <div class="w-64 h-64 bg-slate-200 rounded-full flex-shrink-0 flex items-center justify-center text-5xl">👨‍⚕️</div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-2">Dr. Tae Woo Kang</h3>
+                    <p class="text-medical-teal font-bold mb-6">DVM | Seoul National University & Cornell University</p>
+                    <p class="text-slate-600 leading-relaxed mb-4">Dr. Kang completed his clinical training at <strong>Cornell University College of Veterinary Medicine</strong>. He is licensed in California and Arizona and brings decades of experience from corporate practice to his own personalized clinic.</p>
+                    <p class="text-slate-600 leading-relaxed">His priority is high-quality, cost-efficient medicine delivered with a gentle heart.</p>
                 </div>
             </div>
-            
-            <div class="lg:w-1/2 bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-200">
-                <form action="https://formspree.io/f/xbldjyqz" method="POST" class="space-y-6">
-                    <div class="grid grid-cols-2 gap-6">
-                        <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-teal-600 transition">
-                        <input type="email" name="email" placeholder="Email" required class="w-full p-4 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-teal-600 transition">
-                    </div>
-                    <textarea name="message" rows="4" placeholder="How can we help your pet today?" required class="w-full p-4 rounded-xl bg-slate-50 border-none focus:ring-2 focus:ring-teal-600 transition"></textarea>
-                    <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-xl font-bold hover:bg-black transition shadow-lg">Send Message</button>
-                </form>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white py-20 mt-24">
+        <div class="container mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+                <p class="text-2xl font-bold mb-4 tracking-tighter">HK ANIMAL HOSPITAL</p>
+                <p class="text-slate-400">5 Railroad Ave #A, Danville, CA 94526<br>(925) 831-9900</p>
+            </div>
+            <div>
+                <p class="font-bold mb-4 uppercase tracking-widest text-sm text-slate-500">Quick Links</p>
+                <div class="flex flex-col space-y-2">
+                    <a href="#" @click="page = 'home'" class="hover:text-medical-teal transition">Home</a>
+                    <a href="#" @click="page = 'about'" class="hover:text-medical-teal transition">About Us</a>
+                    <a href="#" @click="page = 'services'" class="hover:text-medical-teal transition">Services</a>
+                </div>
+            </div>
+            <div>
+                <p class="font-bold mb-4 uppercase tracking-widest text-sm text-slate-500">Hours</p>
+                <p class="text-slate-400">Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: By Appointment Only</p>
             </div>
         </div>
-    </section>
-
-    <footer class="bg-white py-12 border-t border-slate-200 text-center">
-        <p class="text-sm font-bold text-slate-400 uppercase tracking-widest mb-2">HK Animal Hospital</p>
-        <p class="text-slate-400 text-xs">© 2026 Licensed in CA & AZ. Danville, California.</p>
+        <div class="text-center mt-20 pt-8 border-t border-slate-800 text-slate-500 text-sm">
+            © 2026 HK Animal Hospital. Quality Care with Compassion.
+        </div>
     </footer>
 
-    <div x-show="bookingModal" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm">
+    <div x-show="bookingModal" x-cloak class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
         <div @click.away="bookingModal = false" class="bg-white w-full max-w-lg rounded-[2.5rem] p-10 shadow-2xl relative">
-            <button @click="bookingModal = false" class="absolute top-6 right-8 text-slate-400 text-2xl hover:text-black transition">✕</button>
-            <h3 class="text-3xl font-bold mb-6">Request Appointment</h3>
-            <div class="space-y-4">
-                <p class="text-slate-500 mb-6">Our team will call you to confirm a specific time slot.</p>
-                <form action="https://formspree.io/f/xbldjyqz" method="POST" class="space-y-4">
-                    <input type="text" name="name" placeholder="Full Name" required class="w-full p-4 bg-slate-50 rounded-xl border-none">
-                    <input type="tel" name="phone" placeholder="Phone Number" required class="w-full p-4 bg-slate-50 rounded-xl border-none">
-                    <button type="submit" class="w-full py-5 bg-medical-teal text-white rounded-2xl font-bold shadow-xl shadow-teal-900/30">Request Callback</button>
-                </form>
-                <div class="text-center py-2 text-xs font-bold text-slate-300 tracking-widest uppercase">Or</div>
-                <a href="tel:9258319900" class="block w-full py-4 border-2 border-medical-teal text-medical-teal text-center rounded-2xl font-bold hover:bg-teal-50 transition">Call (925) 831-9900</a>
-            </div>
+            <button @click="bookingModal = false" class="absolute top-6 right-6 text-slate-400 hover:text-black transition">✕</button>
+            <h3 class="text-3xl font-bold mb-4">Request Appointment</h3>
+            <p class="text-slate-500 mb-8">We will call you within 1 business day to confirm your time.</p>
+            <form action="https://formspree.io/f/xbldjyqz" method="POST" class="space-y-4">
+                <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 bg-slate-50 rounded-xl border-none">
+                <input type="tel" name="phone" placeholder="Phone Number" required class="w-full p-4 bg-slate-50 rounded-xl border-none">
+                <select name="service" class="w-full p-4 bg-slate-50 rounded-xl border-none">
+                    <option>General Exam</option>
+                    <option>Dental Cleaning</option>
+                    <option>Surgery Inquiry</option>
+                    <option>Vaccinations</option>
+                </select>
+                <button type="submit" class="w-full py-5 bg-medical-teal text-white font-bold rounded-2xl shadow-xl shadow-teal-900/30">Request Callback</button>
+            </form>
+            <p class="text-center mt-6 text-slate-400 text-xs">For emergencies, call (925) 831-9900 immediately.</p>
         </div>
     </div>
 
