@@ -12,7 +12,13 @@
         .medical-teal { color: #006064; }
         .bg-medical-teal { background-color: #006064; }
         [x-cloak] { display: none !important; }
-        .hero-gradient { background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; }
+        
+        /* Updated Hero Background with uploaded storefront image */
+        .hero-gradient { 
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('unnamed.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
     </style>
 </head>
 <body class="bg-white text-slate-800" x-data="{ page: 'home', mobileMenu: false, bookingModal: false }">
@@ -115,7 +121,7 @@
     <main x-show="page === 'services'" x-transition x-cloak class="py-24 bg-slate-50">
         <div class="container mx-auto px-6">
             <h2 class="text-4xl font-bold text-center mb-16">Compassionate Clinical Services</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <template x-for="s in [
                     {title: 'Exam & Consultation', icon: '🩺'},
                     {title: 'Preventative Care', icon: '💉'},
@@ -126,10 +132,9 @@
                     {title: 'Diagnostic Imaging', icon: '🦴'},
                     {title: 'Pharmacy', icon: '💊'}
                 ]">
-                    <div class="p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100">
-                        <div class="text-4xl mb-6" x-text="s.icon"></div>
-                        <h4 class="text-xl font-bold mb-4" x-text="s.title"></h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Providing high-standard clinical care with a focus on your pet's comfort and long-term health outcomes.</p>
+                    <div class="p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col items-center text-center">
+                        <div class="text-5xl mb-6" x-text="s.icon"></div>
+                        <h4 class="text-xl font-bold" x-text="s.title"></h4>
                     </div>
                 </template>
             </div>
