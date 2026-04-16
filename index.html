@@ -27,8 +27,7 @@
         }
     </style>
 </head>
-<body class="bg-white text-slate-800" x-data="{ page: 'home', mobileMenu: false, bookingModal: false }">
-
+<body class="bg-white text-slate-800" x-data="{ page: 'home', mobileMenu: false, bookingModal: false, updateTitle(newTitle) { document.title = newTitle + ' | HK Animal Hospital Danville'; } }">
     <div class="bg-slate-100 py-2 border-b border-slate-200">
         <div class="container mx-auto px-6 flex justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500">
             <span>📍 Located in Danville Downtown</span>
