@@ -25,6 +25,10 @@
             background-position: center; 
         }
 
+        .review-gradient {
+            background: radial-gradient(circle at center, rgba(255,255,255,1) 0%, rgba(250,251,252,1) 100%);
+        }
+
         section { scroll-margin-top: 100px; }
     </style>
 </head>
@@ -50,9 +54,9 @@
             </a>
             
             <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
-                <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">Home</a>
-                <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">About Us</a>
-                <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">Services</a>
+                <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition cursor-pointer">Home</a>
+                <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition cursor-pointer">About Us</a>
+                <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition cursor-pointer">Services</a>
             </div>
 
             <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-medical-teal">
@@ -86,7 +90,7 @@
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
                     <div class="w-full md:w-1/2">
-                        <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                        <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter text-left">
                             Here When <br><span class="text-slate-800">You Need Us</span>
                         </h2>
                         <div class="w-20 h-1.5 bg-[#8B1A1A] mb-8"></div>
@@ -110,14 +114,12 @@
         <section class="relative bg-white py-24 overflow-hidden border-b border-slate-50">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-                    
                     <div class="w-full md:w-1/2 relative order-2 md:order-1">
                         <div class="absolute -top-8 -right-8 w-64 h-64 bg-[#8B1A1A] rounded-[3rem] opacity-100"></div>
                         <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
                             <img src="cat-pic.jpg" alt="Veterinary Excellence" class="w-full h-full object-cover">
                         </div>
                     </div>
-
                     <div class="w-full md:w-1/2 order-1 md:order-2">
                         <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter">
                             A Higher Standard of <br><span class="text-slate-800">Veterinary Excellence</span>
@@ -138,29 +140,39 @@
             </div>
         </section>
 
-        <section class="relative bg-white py-24 overflow-hidden border-b border-slate-50">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
-                    
-                    <div class="w-full md:w-1/2">
-                        <div class="text-6xl mb-10 text-[#8B1A1A] opacity-50">“</div>
-                        <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-12 tracking-tighter">
-                            Another <span class="text-slate-800">Excellent <br>Experience!</span>
+        <section class="relative py-28 border-b border-slate-50 review-gradient overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute top-1/4 left-1/4 w-32 h-32 text-red-900 filter blur-xl">♥️</div>
+                <div class="absolute top-1/2 left-3/4 w-24 h-24 text-red-900 filter blur-lg">♥️</div>
+                <div class="absolute bottom-1/4 left-1/2 w-40 h-40 text-red-900 filter blur-xl">♥️</div>
+            </div>
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+                    <div class="w-full md:w-1/2 md:p-12">
+                        <div class="text-6xl mb-12 text-[#8B1A1A] opacity-60 font-serif">“</div>
+                        <h2 class="text-5xl md:text-6xl font-extrabold text-[#8B1A1A] leading-[1.1] mb-12 tracking-tight">
+                            Compassionate care <br><span class="text-slate-950">for our best friend.</span>
                         </h2>
-                        <div class="w-20 h-1.5 bg-[#8B1A1A] mb-12"></div>
-                        <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-semibold max-w-lg">
-                            "I can't say enough good things about <span class="medical-teal font-bold">Dr. Kang</span>, 
-                            <span class="medical-teal font-bold">Erin</span>, and every single tech/assistant. Whether it's a check-up, 
-                            or even a surgery like my dog experienced today, I know my beloved pets are in the best of hands 
-                            with people who truly care about animals. So grateful for them!!"
+                        <div class="w-24 h-2 bg-[#8B1A1A] mb-12"></div>
+                        <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-medium mb-10 italic">
+                            "I can't say enough good things about <span class="medical-teal font-bold">Dr. Kang</span>, <span class="medical-teal font-bold">Erin</span>, and the entire team. Whether it's a routine check-up, or surgery like our pup needed, I know my beloved pets are in the most capable and caring hands. We are so incredibly grateful for them!"
                         </p>
-                        <p class="mt-12 text-sm font-black uppercase tracking-[0.2em] text-slate-400">— Rachel R.</p>
+                        <div class="flex items-center space-x-6">
+                            <p class="text-sm font-black uppercase tracking-[0.3em] text-slate-400">— Rachel R.</p>
+                            <div class="flex items-center space-x-2 text-xs">
+                                <span class="w-1.5 h-1.5 rounded-full border border-slate-300"></span>
+                                <span class="w-1.5 h-1.5 rounded-full border border-slate-300"></span>
+                                <span class="w-2.5 h-2.5 rounded-full bg-slate-900"></span>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="w-full md:w-1/2 relative">
-                        <div class="absolute -top-8 -left-8 w-64 h-64 bg-[#8B1A1A] rounded-[3rem] opacity-100"></div>
-                        <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white p-6 bg-slate-50 aspect-square">
-                            <img src="clip-art.jpg" alt="Happy Pets" class="w-full h-full object-contain">
+                    <div class="w-full md:w-1/2 md:p-12 order-2">
+                        <div class="aspect-square relative rounded-full p-6 bg-white shadow-inner flex items-center justify-center">
+                            <div class="absolute inset-0 rounded-full border-4 border-[#8B1A1A] opacity-10"></div>
+                            <div class="w-full h-full rounded-full bg-slate-100 flex items-center justify-center relative overflow-hidden">
+                                <div class="absolute bottom-6 right-6 text-6xl text-slate-200 opacity-20 filter blur-sm">🐾</div>
+                                <div class="w-20 h-1 bg-[#8B1A1A] opacity-10"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -169,18 +181,54 @@
     </main>
 
     <main x-show="page === 'about'" x-transition x-cloak class="py-24">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <div class="grid md:grid-cols-2 gap-16 items-center">
-                <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
-                    <img src="doctor-pic.png" alt="Dr. Tae Woo Kang" class="w-full h-full object-cover">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="grid md:grid-cols-2 gap-20 items-center mb-32">
+                <div class="space-y-8">
+                    <h2 class="text-5xl font-extrabold medical-teal uppercase tracking-tighter leading-tight">Treating Your Pets <br>Like Family</h2>
+                    <div class="w-20 h-1.5 bg-[#8B1A1A]"></div>
+                    <p class="text-xl text-slate-600 leading-relaxed font-medium">
+                        At HK Animal Hospital, we specialize in treating your pets as cherished members of our own family. Our facility is clean, modern, and affordable, providing a welcoming environment for both appointments and walk-ins.
+                    </p>
+                    <p class="text-slate-600 font-medium">
+                        Whether your companion needs a thorough examination, vaccinations, dental care, or surgical procedures like spaying and neutering, our friendly staff is dedicated to providing the best veterinary care available in Danville.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 pt-4 text-sm font-bold uppercase tracking-widest text-medical-teal">
+                        <div class="flex items-center space-x-2"><span>🐾</span> <span>Surgery & Spay</span></div>
+                        <div class="flex items-center space-x-2"><span>🐾</span> <span>Dental Care</span></div>
+                        <div class="flex items-center space-x-2"><span>🐾</span> <span>Vaccinations</span></div>
+                        <div class="flex items-center space-x-2"><span>🐾</span> <span>Emergency Care</span></div>
+                    </div>
                 </div>
-                <div class="space-y-6">
-                    <h2 class="text-4xl font-extrabold medical-teal uppercase tracking-tighter">Our Story & Mission</h2>
-                    <p class="text-lg text-slate-600 leading-relaxed italic">"Providing excellent, personalized care for each and every patient."</p>
-                    <p class="text-slate-600 font-medium">Dr. Kang graduated from <strong>Seoul National University</strong> and completed training at <strong>Cornell University</strong>. He is licensed in CA and AZ, focusing on high-quality medicine in a welcoming environment.</p>
-                    <div class="p-8 bg-teal-50 border-l-8 border-medical-teal rounded-r-3xl">
-                        <p class="text-xs font-black uppercase tracking-[0.2em] text-medical-teal mb-3">Our Values</p>
-                        <p class="text-teal-900 leading-relaxed font-bold text-xl">As a Christian veterinary hospital, we share compassion and grace with our employees, neighbors, and the community.</p>
+                <div class="relative">
+                    <div class="absolute -bottom-8 -right-8 w-64 h-64 bg-teal-50 rounded-[3rem] -z-10"></div>
+                    <div class="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
+                        <img src="hospital-building.png" alt="HK Animal Hospital Facility" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-50 rounded-[4rem] p-12 md:p-20">
+                <div class="grid md:grid-cols-5 gap-16 items-center">
+                    <div class="md:col-span-2">
+                        <div class="aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
+                            <img src="doctor-pic.png" alt="Dr. Taewoo Kang" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="md:col-span-3 space-y-6">
+                        <h3 class="text-sm font-black uppercase tracking-[0.3em] text-[#8B1A1A]">Established 2013</h3>
+                        <h2 class="text-5xl font-extrabold text-slate-900 tracking-tighter">Meet Dr. Taewoo Kang</h2>
+                        <p class="text-lg font-bold medical-teal italic">DVM | Business Owner</p>
+                        <p class="text-slate-600 leading-relaxed font-medium">
+                            Dr. Taewoo Kang is an expert veterinarian with extensive corporate practice experience and a deep knowledge of advanced veterinary medicine. He is committed to the highest standards of care, ensuring every patient receives a personalized and thorough medical approach.
+                        </p>
+                        <div class="space-y-4 text-slate-600 font-medium">
+                            <p>🎓 <strong>Seoul National University</strong>, College of Veterinary Medicine</p>
+                            <p>🏥 <strong>Cornell University</strong>, Clinical Training (CVM 2007)</p>
+                            <p>📜 <strong>Licensed</strong> in California and Arizona</p>
+                        </div>
+                        <p class="text-slate-600 font-medium pt-4">
+                            Dr. Kang is deeply committed to continuing education, staying at the forefront of medical advancements to provide his patients with the highest quality veterinary care possible.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -226,9 +274,9 @@
                     </div>
                 </div>
             </div>
-            <div class="h-[450px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
+            <div class="h-[380px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200 lg:h-[350px]">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.901170725206!2d-122.00125882346743!3d37.81577977197475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fec3a968a3563%3A0xe54e240292856402!2sHK%20Animal%20Hospital!5e0!3m2!1sen!2sus!4v1713214567890!5m2!1sen!2sus" 
+                    src="http://googleusercontent.com/maps.google.com/6" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
@@ -250,11 +298,12 @@
                         <div class="flex justify-between border-b border-white/5 pb-2"><span>Thu / Fri</span><span class="text-teal-400">8AM - 7PM</span></div>
                         <div class="flex justify-between text-slate-600"><span>Sat / Sun</span><span>CLOSED</span></div>
                     </div>
+                    <p class="mt-4 text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-relaxed">During office hours, we stay late as needed for pet emergencies.</p>
                 </div>
                 <div class="flex flex-col space-y-5 font-black uppercase text-xs tracking-[0.2em] text-slate-400">
-                    <a href="#" @click="page = 'home'; window.scrollTo(0,0)" class="hover:text-white transition">Home</a>
-                    <a href="#" @click="page = 'about'; window.scrollTo(0,0)" class="hover:text-white transition">About Us</a>
-                    <a href="#" @click="page = 'services'; window.scrollTo(0,0)" class="hover:text-white transition">Services</a>
+                    <a href="#" @click="page = 'home'; window.scrollTo(0,0)" class="hover:text-white transition cursor-pointer">Home</a>
+                    <a href="#" @click="page = 'about'; window.scrollTo(0,0)" class="hover:text-white transition cursor-pointer">About Us</a>
+                    <a href="#" @click="page = 'services'; window.scrollTo(0,0)" class="hover:text-white transition cursor-pointer">Services</a>
                 </div>
             </div>
             <p class="text-center mt-12 text-slate-700 text-[10px] font-black tracking-[0.4em] uppercase">© 2026 HK Animal Hospital. Compassionate excellence in Danville.</p>
