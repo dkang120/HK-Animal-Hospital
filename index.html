@@ -45,11 +45,14 @@
             </a>
             
             <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-wider">
-                <a href="#" @click="page = 'home'" :class="page === 'home' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
-                <a href="#" @click="page = 'about'" :class="page === 'about' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
-                <a href="#" @click="page = 'services'" :class="page === 'services' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
-                <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full hover:bg-cyan-900 transition shadow-lg text-xs">Book Appointment</button>
-            </div>
+    <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
+    
+    <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
+    
+    <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
+    
+    <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full hover:bg-cyan-900 transition shadow-lg text-xs">Book Appointment</button>
+</div>
 
             <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-medical-teal">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
