@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>HK Animal Hospital | Veterinary Excellence in Danville, CA</title>
-    <meta name="description" content="HK Animal Hospital in Danville offers expert veterinary care, surgery, and diagnostics. Dr. Kang and our team provide compassionate, high-quality medicine for your pets.">
+    <title>HK Animal Hospital | Expert Veterinary Care in Danville, CA</title>
+    <meta name="description" content="HK Animal Hospital in Danville Downtown offers compassionate veterinary excellence. Led by Dr. Kang, we provide surgery, diagnostics, and preventative care for your pets.">
     
     <link rel="icon" href="https://fav.farm/🐾" />
-    </head>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -27,7 +26,12 @@
         }
     </style>
 </head>
-<body class="bg-white text-slate-800" x-data="{ page: 'home', mobileMenu: false, bookingModal: false, updateTitle(newTitle) { document.title = newTitle + ' | HK Animal Hospital Danville'; } }">
+<body class="bg-white text-slate-800" x-data="{ 
+    page: 'home', 
+    mobileMenu: false, 
+    bookingModal: false, 
+    updateTitle(newTitle) { document.title = newTitle + ' | HK Animal Hospital Danville'; } 
+}">
     <div class="bg-slate-100 py-2 border-b border-slate-200">
         <div class="container mx-auto px-6 flex justify-between items-center text-[10px] md:text-xs font-bold uppercase tracking-widest text-slate-500">
             <span>📍 Located in Danville Downtown</span>
@@ -37,7 +41,7 @@
 
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" @click="page = 'home'" class="flex items-center">
+            <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" class="flex items-center">
                 <img src="logo.png" alt="HK Animal Hospital" class="h-10 md:h-12 mr-4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div style="display: none;" class="items-center">
                     <span class="text-xl font-bold tracking-tighter medical-teal leading-none uppercase">HK Animal Hospital</span>
@@ -45,14 +49,11 @@
             </a>
             
             <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-wider">
-    <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
-    
-    <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
-    
-    <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
-    
-    <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full hover:bg-cyan-900 transition shadow-lg text-xs">Book Appointment</button>
-</div>
+                <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
+                <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
+                <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
+                <button @click="bookingModal = true" class="bg-medical-teal text-white px-6 py-3 rounded-full hover:bg-cyan-900 transition shadow-lg text-xs">Book Appointment</button>
+            </div>
 
             <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-medical-teal">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -62,9 +63,9 @@
 
     <div x-show="mobileMenu" x-cloak class="fixed inset-0 z-[60] bg-white p-10 lg:hidden">
         <div class="flex flex-col space-y-8 text-2xl font-bold pt-10">
-            <a href="#" @click="page = 'home'; mobileMenu = false">Home</a>
-            <a href="#" @click="page = 'about'; mobileMenu = false">About Us</a>
-            <a href="#" @click="page = 'services'; mobileMenu = false">Services</a>
+            <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care'); mobileMenu = false">Home</a>
+            <a href="#" @click="page = 'about'; updateTitle('About Our Clinic'); mobileMenu = false">About Us</a>
+            <a href="#" @click="page = 'services'; updateTitle('Veterinary Services'); mobileMenu = false">Services</a>
             <button @click="bookingModal = true; mobileMenu = false" class="bg-medical-teal text-white py-5 rounded-2xl">Book Now</button>
             <button @click="mobileMenu = false" class="text-slate-400 text-sm uppercase">✕ Close Menu</button>
         </div>
@@ -111,9 +112,9 @@
     <main x-show="page === 'about'" x-transition x-cloak class="py-24">
         <div class="container mx-auto px-6 max-w-5xl">
             <div class="grid md:grid-cols-2 gap-16 items-center">
-               <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
-    <img src="doctor-pic.png" alt="Dr. Tae Woo Kang" class="w-full h-full object-cover">
-</div>
+                <div class="aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white">
+                    <img src="doctor-pic.png" alt="Dr. Tae Woo Kang" class="w-full h-full object-cover">
+                </div>
                 <div class="space-y-6">
                     <h2 class="text-4xl font-bold medical-teal">Our Story & Mission</h2>
                     <p class="text-lg text-slate-600 leading-relaxed italic">"Providing excellent, personalized care for each and every patient."</p>
@@ -168,7 +169,7 @@
             </div>
             <div class="h-[400px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.284305786358!2d-122.00118832345517!3d37.80687787197825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f060166667503%3A0xc3f7a1f592666a7b!2sHK%20Animal%20Hospital!5e0!3m2!1sen!2sus!4v1711999999999!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.033621424606!2d-122.0003!3d37.8222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808ff39f37c37b77%3A0x6e7e7d9b9a9a9a9a!2s5%20Railroad%20Ave%20A%2C%20Danville%2C%20CA%2094526!5e0!3m2!1sen!2sus!4v1234567890" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
@@ -192,9 +193,9 @@
                     </div>
                 </div>
                 <div class="flex flex-col space-y-4 font-bold uppercase text-xs tracking-widest text-slate-400">
-                    <a href="#" @click="page = 'home'" class="hover:text-white transition">Home</a>
-                    <a href="#" @click="page = 'about'" class="hover:text-white transition">About Us</a>
-                    <a href="#" @click="page = 'services'" class="hover:text-white transition">Services</a>
+                    <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care'); window.scrollTo(0,0)" class="hover:text-white transition">Home</a>
+                    <a href="#" @click="page = 'about'; updateTitle('About Our Clinic'); window.scrollTo(0,0)" class="hover:text-white transition">About Us</a>
+                    <a href="#" @click="page = 'services'; updateTitle('Veterinary Services'); window.scrollTo(0,0)" class="hover:text-white transition">Services</a>
                 </div>
             </div>
             <p class="text-center mt-12 text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase">© 2026 HK Animal Hospital. Compassionate excellence in Danville.</p>
@@ -213,6 +214,5 @@
             </form>
         </div>
     </div>
-
 </body>
 </html>
