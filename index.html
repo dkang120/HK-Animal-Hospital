@@ -11,7 +11,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
@@ -19,10 +19,13 @@
         .bg-medical-teal { background-color: #006064; }
         [x-cloak] { display: none !important; }
         
-        .logo-header {
-    display: flex !important;
-    align-items: center;
-}
+        .hero-gradient { 
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('hospital-building.png'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+
+        section { scroll-margin-top: 100px; }
     </style>
 </head>
 <body class="bg-white text-slate-800" x-data="{ 
@@ -39,17 +42,17 @@
 
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-100 shadow-sm">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" class="flex items-center">
+            <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care'); window.scrollTo(0,0)" class="flex items-center">
                 <img src="logo.png" alt="HK Animal Hospital" class="h-10 md:h-12 mr-4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
                 <div style="display: none;" class="items-center">
-                    <span class="text-xl font-bold tracking-tighter medical-teal leading-none uppercase">HK Animal Hospital</span>
+                    <span class="text-xl font-extrabold tracking-tighter medical-teal leading-none uppercase">HK Animal Hospital</span>
                 </div>
             </a>
             
-            <div class="hidden lg:flex items-center space-x-8 font-semibold text-xs uppercase tracking-wider">
-                <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Home</a>
-                <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">About Us</a>
-                <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal font-bold' : 'text-slate-500'" class="hover:text-teal-700 transition">Services</a>
+            <div class="hidden lg:flex items-center space-x-8 font-bold text-xs uppercase tracking-widest">
+                <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care')" :class="page === 'home' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">Home</a>
+                <a href="#" @click="page = 'about'; updateTitle('About Our Clinic')" :class="page === 'about' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">About Us</a>
+                <a href="#" @click="page = 'services'; updateTitle('Veterinary Services')" :class="page === 'services' ? 'medical-teal' : 'text-slate-400'" class="hover:text-teal-700 transition">Services</a>
             </div>
 
             <button @click="mobileMenu = !mobileMenu" class="lg:hidden p-2 text-medical-teal">
@@ -68,9 +71,9 @@
     </div>
 
     <main x-show="page === 'home'" x-transition>
-        <section class="relative h-[500px] md:h-[650px] flex items-center justify-center text-center px-6 hero-gradient">
+        <section class="relative h-[500px] md:h-[700px] flex items-center justify-center text-center px-6 hero-gradient">
             <div class="max-w-4xl">
-                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8 drop-shadow-lg">
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold text-white leading-tight mb-8 drop-shadow-2xl tracking-tighter">
                     Modern Care. <br> Gentle Hearts.
                 </h1>
                 <div class="flex justify-center">
@@ -79,38 +82,32 @@
             </div>
         </section>
 
-        <section class="bg-[#7a1a1a] text-white overflow-hidden">
-    <div class="container mx-auto px-0 md:px-6">
-        <div class="flex flex-col md:flex-row items-stretch">
-            <div class="w-full md:w-1/2 p-12 md:p-24 flex flex-col justify-center">
-                <h2 class="text-4xl md:text-5xl font-bold mb-8 leading-tight">
-                    Here When You Need Us
-                </h2>
-                <p class="text-lg md:text-xl leading-relaxed text-slate-100 opacity-90 font-light">
-                    Navigating your pet’s health can feel uncertain, but you never have to do it alone. 
-                    At HK Animal Hospital, we provide clarity and comfort when you need it most. 
-                    Dr. Kang and our dedicated team combine medical excellence with a gentle touch, 
-                    ensuring that every patient is treated with the skill, compassion, and grace they deserve.
-                </p>
+        <section class="relative bg-white py-24 overflow-hidden border-b border-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-16 lg:gap-24">
+                    
+                    <div class="w-full md:w-1/2">
+                        <h2 class="text-5xl md:text-6xl font-extrabold text-slate-900 leading-[1.1] mb-8 tracking-tighter">
+                            Here When <br><span class="text-slate-800">You Need Us</span>
+                        </h2>
+                        <div class="w-20 h-1.5 bg-[#8B1A1A] mb-8"></div>
+                        <p class="text-lg md:text-xl text-slate-600 leading-relaxed font-semibold max-w-lg">
+                            Navigating your pet’s health can feel uncertain, but you never have to do it alone. 
+                            At <span class="medical-teal">HK Animal Hospital</span>, we provide clarity and comfort when you need it most. 
+                            Dr. Kang and our dedicated team combine medical excellence with a gentle touch, 
+                            ensuring that every patient is treated with the skill, compassion, and grace they deserve.
+                        </p>
+                    </div>
+                    
+                    <div class="w-full md:w-1/2 relative">
+                        <div class="absolute -top-8 -left-8 w-64 h-64 bg-[#8B1A1A] rounded-[3rem]"></div>
+                        <div class="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] md:aspect-square">
+                            <img src="dog-pic.jpg" alt="Compassionate Care Dog" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="w-full md:w-1/2 h-[400px] md:h-auto">
-                <img src="dog-pic.jpg" alt="Happy Golden Retriever" class="w-full h-full object-cover">
-            </div>
-        </div>
-    </div>
-</section>
-
-<div class="bg-medical-teal py-6 text-white text-center border-t border-white/10">
-    <p class="font-bold tracking-wide">
-        <span class="bg-white/20 px-2 py-1 rounded mr-2 uppercase text-xs">Promo</span> 
-        Mention our website for a discounted first-time comprehensive exam!
-    </p>
-</div>
-
-        <div class="bg-emerald-600 py-6 text-white text-center">
-            <p class="font-bold tracking-wide"><span class="bg-white/20 px-2 py-1 rounded mr-2">PROMO</span> Mention our website for a discounted first-time comprehensive exam!</p>
-        </div>
+        </section>
     </main>
 
     <main x-show="page === 'about'" x-transition x-cloak class="py-24">
@@ -120,12 +117,12 @@
                     <img src="doctor-pic.png" alt="Dr. Tae Woo Kang" class="w-full h-full object-cover">
                 </div>
                 <div class="space-y-6">
-                    <h2 class="text-4xl font-bold medical-teal">Our Story & Mission</h2>
+                    <h2 class="text-4xl font-extrabold medical-teal uppercase tracking-tighter">Our Story & Mission</h2>
                     <p class="text-lg text-slate-600 leading-relaxed italic">"Providing excellent, personalized care for each and every patient."</p>
-                    <p class="text-slate-600">Dr. Kang graduated from <strong>Seoul National University</strong> and completed training at <strong>Cornell University</strong>. He is licensed in CA and AZ, focusing on high-quality medicine in a welcoming environment.</p>
-                    <div class="p-6 bg-teal-50 border-l-4 border-medical-teal rounded-r-2xl">
-                        <p class="text-sm font-bold uppercase tracking-widest text-medical-teal mb-2">Our Values</p>
-                        <p class="text-teal-900 leading-relaxed font-medium text-lg">As a Christian veterinary hospital, we share compassion and grace with our employees, neighbors, and the community.</p>
+                    <p class="text-slate-600 font-medium">Dr. Kang graduated from <strong>Seoul National University</strong> and completed training at <strong>Cornell University</strong>. He is licensed in CA and AZ, focusing on high-quality medicine in a welcoming environment.</p>
+                    <div class="p-8 bg-teal-50 border-l-8 border-medical-teal rounded-r-3xl">
+                        <p class="text-xs font-black uppercase tracking-[0.2em] text-medical-teal mb-3">Our Values</p>
+                        <p class="text-teal-900 leading-relaxed font-bold text-xl">As a Christian veterinary hospital, we share compassion and grace with our employees, neighbors, and the community.</p>
                     </div>
                 </div>
             </div>
@@ -134,7 +131,7 @@
 
     <main x-show="page === 'services'" x-transition x-cloak class="py-24 bg-slate-50">
         <div class="container mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-16">Medical Services</h2>
+            <h2 class="text-5xl font-extrabold text-center mb-16 tracking-tighter uppercase text-slate-900">Medical Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <template x-for="s in [
                     {title: 'Exam & Consultation', icon: '🩺'},
@@ -148,61 +145,61 @@
                 ]">
                     <div class="p-10 bg-white rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all border border-slate-100 flex flex-col items-center text-center">
                         <div class="text-5xl mb-6" x-text="s.icon"></div>
-                        <h4 class="text-xl font-bold" x-text="s.title"></h4>
+                        <h4 class="text-xl font-extrabold text-slate-900 uppercase tracking-tight" x-text="s.title"></h4>
                     </div>
                 </template>
             </div>
         </div>
     </main>
 
-    <section id="visit" class="py-24 bg-slate-50 border-t border-slate-200">
+    <section id="visit" class="py-24 bg-white border-t border-slate-100">
         <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-4xl font-bold mb-6 medical-teal uppercase tracking-tight">Visit Our Hospital</h2>
-                <p class="text-lg text-slate-600 mb-8 leading-relaxed">Located in the heart of Danville Downtown. Plenty of parking available in the Trader Joe's Plaza.</p>
-                <div class="space-y-6">
-                    <div class="flex items-center space-x-4">
-                        <span class="text-2xl">📍</span>
-                        <span class="font-bold">5 Railroad Ave #A, Danville, CA 94526</span>
+                <h2 class="text-5xl font-extrabold mb-6 medical-teal uppercase tracking-tighter leading-none">Visit Our <br>Hospital</h2>
+                <p class="text-xl text-slate-500 mb-10 leading-relaxed font-medium">Located in the heart of Danville Downtown. Plenty of parking available in the Trader Joe's Plaza.</p>
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-5">
+                        <span class="text-3xl">📍</span>
+                        <span class="font-bold text-lg text-slate-800">5 Railroad Ave #A, Danville, CA 94526</span>
                     </div>
-                    <div class="flex items-center space-x-4 text-medical-teal">
-                        <span class="text-2xl">📞</span>
-                        <a href="tel:9258319900" class="text-xl font-bold hover:underline underline-offset-4">(925) 831-9900</a>
+                    <div class="flex items-center space-x-5 text-medical-teal">
+                        <span class="text-3xl">📞</span>
+                        <a href="tel:9258319900" class="text-2xl font-black hover:underline underline-offset-8">(925) 831-9900</a>
                     </div>
                 </div>
             </div>
-            <div class="h-[400px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
+            <div class="h-[450px] rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white bg-slate-200">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.033621424606!2d-122.0003!3d37.8222!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808ff39f37c37b77%3A0x6e7e7d9b9a9a9a9a!2s5%20Railroad%20Ave%20A%2C%20Danville%2C%20CA%2094526!5e0!3m2!1sen!2sus!4v1234567890" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.2185257326!2d-121.9995572!3d37.8199!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fef39c0000001%3A0x6a16248c8230713b!2s5%20Railroad%20Ave%20A%2C%20Danville%2C%20CA%2094526!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus" 
                     width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-white pt-20 pb-12">
+    <footer class="bg-slate-950 text-white pt-24 pb-12">
         <div class="container mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 pb-16 border-b border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-20 pb-20 border-b border-white/10">
                 <div>
-                    <h3 class="text-2xl font-bold mb-6 medical-teal uppercase">HK Animal Hospital</h3>
-                    <p class="text-slate-400 leading-relaxed italic mb-6">"Quality care with a gentle heart."</p>
-                    <p class="font-bold text-lg leading-none">(925) 831-9900</p>
+                    <h3 class="text-2xl font-black mb-6 medical-teal uppercase tracking-tighter">HK Animal Hospital</h3>
+                    <p class="text-slate-500 leading-relaxed italic mb-8 font-medium">"Quality care with a gentle heart."</p>
+                    <p class="font-black text-2xl leading-none text-white">(925) 831-9900</p>
                 </div>
                 <div>
-                    <h4 class="font-bold uppercase tracking-widest text-sm text-slate-500 mb-8">Hospital Hours</h4>
-                    <div class="space-y-4 font-semibold text-sm">
-                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Mon / Tue</span><span class="text-medical-teal font-bold">8AM - 7PM</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Wednesday</span><span class="text-medical-teal font-bold">9AM - 5PM</span></div>
-                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Thu / Fri</span><span class="text-medical-teal font-bold">8AM - 7PM</span></div>
-                        <div class="flex justify-between text-slate-600 font-normal"><span>Sat / Sun</span><span>CLOSED</span></div>
+                    <h4 class="font-black uppercase tracking-[0.2em] text-xs text-slate-400 mb-8">Hospital Hours</h4>
+                    <div class="space-y-4 font-bold text-sm">
+                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Mon / Tue</span><span class="text-teal-400">8AM - 7PM</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Wednesday</span><span class="text-teal-400">9AM - 5PM</span></div>
+                        <div class="flex justify-between border-b border-white/5 pb-2"><span>Thu / Fri</span><span class="text-teal-400">8AM - 7PM</span></div>
+                        <div class="flex justify-between text-slate-600"><span>Sat / Sun</span><span>CLOSED</span></div>
                     </div>
                 </div>
-                <div class="flex flex-col space-y-4 font-bold uppercase text-xs tracking-widest text-slate-400">
-                    <a href="#" @click="page = 'home'; updateTitle('Expert Veterinary Care'); window.scrollTo(0,0)" class="hover:text-white transition">Home</a>
-                    <a href="#" @click="page = 'about'; updateTitle('About Our Clinic'); window.scrollTo(0,0)" class="hover:text-white transition">About Us</a>
-                    <a href="#" @click="page = 'services'; updateTitle('Veterinary Services'); window.scrollTo(0,0)" class="hover:text-white transition">Services</a>
+                <div class="flex flex-col space-y-5 font-black uppercase text-xs tracking-[0.2em] text-slate-400">
+                    <a href="#" @click="page = 'home'; window.scrollTo(0,0)" class="hover:text-white transition">Home</a>
+                    <a href="#" @click="page = 'about'; window.scrollTo(0,0)" class="hover:text-white transition">About Us</a>
+                    <a href="#" @click="page = 'services'; window.scrollTo(0,0)" class="hover:text-white transition">Services</a>
                 </div>
             </div>
-            <p class="text-center mt-12 text-slate-600 text-[10px] font-bold tracking-[0.3em] uppercase">© 2026 HK Animal Hospital. Compassionate excellence in Danville.</p>
+            <p class="text-center mt-12 text-slate-700 text-[10px] font-black tracking-[0.4em] uppercase">© 2026 HK Animal Hospital. Compassionate excellence in Danville.</p>
         </div>
     </footer>
 </body>
